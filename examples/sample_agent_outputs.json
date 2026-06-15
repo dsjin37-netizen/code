@@ -1,0 +1,145 @@
+{
+  "note": "본 샘플은 스키마 형식 예시이며, 실제 시장 데이터가 아닌 가상의 예시 수치이다. 데이터 기준일과 출처는 예시 목적이다.",
+  "financial_output": {
+    "data_cutoff": "2026-06-15",
+    "sources": ["2025년 사업보고서", "2026년 1분기 보고서", "거래소 공시"],
+    "core_summary": "메모리 업황 회복으로 매출과 영업이익이 반등하는 국면. 현금흐름 양호.",
+    "growth_analysis": "2026년 1분기 매출 YoY +18%, 영업이익 YoY +120%로 회복세. (예시 수치)",
+    "profitability_analysis": "영업이익률 회복 중이나 과거 고점 대비 낮음. 질 낮은 성장 신호는 없음.",
+    "stability_analysis": "부채비율 낮고 유동비율 양호. 단기차입금 만기 집중 없음.",
+    "cashflow_analysis": "영업현금흐름이 순이익을 상회하여 이익의 질 양호.",
+    "accounting_quality_check": "재고자산 증가가 매출 증가 범위 내. 일회성 손익 영향 제한적.",
+    "valuation_judgment": "PBR은 역사적 밴드 하단. PER는 이익 회복으로 정상화 중.",
+    "peer_comparison": "글로벌 메모리 경쟁사 대비 밸류에이션 중립~소폭 할인.",
+    "positive_factors": ["메모리 업황 회복", "AI 수요 견조", "재무 안정성 우수"],
+    "risk_factors": ["메모리 가격 변동성", "환율 영향", "중국 규제 리스크"],
+    "financial_grade": "B",
+    "handoff_summary": [
+      "재무 등급 B, 안정성 우수.",
+      "이익 회복 국면이나 고점 대비 마진 낮음.",
+      "현금흐름 양호로 이익의 질 신뢰 가능.",
+      "밸류에이션 부담 크지 않음.",
+      "메모리 가격·환율·규제가 핵심 변수."
+    ]
+  },
+  "news_output": {
+    "data_cutoff": "2026-06-15",
+    "news_period": "2026-05-15 ~ 2026-06-15",
+    "news_items": [
+      {
+        "date": "2026-06-10",
+        "source": "거래소 공시",
+        "title": "1분기 잠정 실적 발표",
+        "summary": "영업이익 컨센서스 상회 (예시)",
+        "classification": "호재",
+        "reliability": "높음",
+        "importance": "높음"
+      },
+      {
+        "date": "2026-06-02",
+        "source": "주요 언론사",
+        "title": "AI 메모리 수요 확대 보도",
+        "summary": "고대역폭 메모리 수요 증가 전망 (예시)",
+        "classification": "호재",
+        "reliability": "중간",
+        "importance": "중간"
+      }
+    ],
+    "counts": { "positive": 2, "negative": 0, "neutral": 1, "uncertain": 0 },
+    "key_positive": ["실적 컨센서스 상회", "AI 메모리 수요 확대", "업황 반등"],
+    "key_negative": ["환율 변동성 우려"],
+    "critical_risk_event": "없음",
+    "preemptive_reflection_risk": "확인 필요",
+    "market_sentiment": "긍정",
+    "handoff_summary": [
+      "최근 1개월 뉴스 심리 긍정.",
+      "공식 실적 발표가 가장 신뢰도 높은 호재.",
+      "호재 일부는 주가 선반영 가능성 확인 필요.",
+      "치명적 리스크 이벤트는 없음.",
+      "환율은 단기 변동성 요인."
+    ]
+  },
+  "sector_output": {
+    "data_cutoff": "2026-06-15",
+    "sources": ["업종 리서치 자료", "글로벌 경쟁사 실적 발표"],
+    "sector_overview": "메모리 반도체 업종, 사이클 회복 초입.",
+    "global_trend": "AI 서버 투자 확대로 메모리 수요 견조. (예시)",
+    "supply_demand_cycle": "공급 조절 이후 수급 개선 국면.",
+    "competitor_comparison": [
+      { "name": "경쟁사 A", "recent_performance": "흑자 전환 (예시)", "valuation": "중립" },
+      { "name": "경쟁사 B", "recent_performance": "회복세 (예시)", "valuation": "소폭 할증" }
+    ],
+    "policy_regulation": "주요국 반도체 수출통제 지속, 영향 제한적.",
+    "company_position": "선도",
+    "sector_outlook": "긍정",
+    "key_benefits": ["AI 수요", "메모리 가격 반등", "선도적 기술력"],
+    "key_threats": ["가격 사이클 둔화", "수출 규제", "경쟁 심화"],
+    "handoff_summary": [
+      "업종 전망 긍정, 사이클 회복 초입.",
+      "해당 기업은 업종 내 선도 지위.",
+      "AI 수요가 핵심 수혜 요인.",
+      "수출 규제·가격 사이클이 위협 요인.",
+      "업종 호재가 개별 기업 실적으로 연결될 가능성 높음."
+    ]
+  },
+  "strategy_output": {
+    "final_judgment": "분할 매수",
+    "key_rationale": [
+      "재무 안정성 우수(B)",
+      "업종 사이클 회복 초입",
+      "뉴스 심리 긍정",
+      "밸류에이션 부담 제한적",
+      "단 호재 선반영 가능성 존재"
+    ],
+    "target_return": "중기 15~25% (예시, 근거 기반 범위)",
+    "stop_loss": "기준가 대비 -8% 또는 메모리 가격 반락 확인 시",
+    "entry_timing": "조정 시 분할 진입",
+    "position_size": "공격적 성향 기준 총자본의 15~20% 이내",
+    "entry_plan": {
+      "first": "기준가 부근 1/3 진입",
+      "second": "-4% 조정 시 1/3 추가",
+      "third": "-8% 또는 업황 재확인 시 잔여 1/3"
+    },
+    "add_position_condition": "메모리 가격 상승 지속 및 실적 추가 개선 확인 시",
+    "exit_condition": "목표 수익률 도달 또는 무효화 조건 발생 시",
+    "scenarios": {
+      "bull": { "probability": "30%", "condition": "AI 수요 가속, 메모리 가격 급등", "response": "비중 확대 및 보유" },
+      "base": { "probability": "50%", "condition": "완만한 사이클 회복", "response": "분할 보유, 목표가 분할 청산" },
+      "bear": { "probability": "20%", "condition": "수요 둔화, 가격 반락", "response": "손절 라인 준수 및 청산" }
+    },
+    "key_risks": [
+      "메모리 가격 변동성",
+      "호재 선반영",
+      "환율 급변",
+      "수출 규제 강화",
+      "경쟁 심화"
+    ],
+    "invalidation_conditions": [
+      "메모리 가격 추세 반락 확인",
+      "영업현금흐름 악화 전환",
+      "손절 라인 이탈"
+    ],
+    "audit_request": [
+      "호재 선반영 정도 검증 요청",
+      "손절 라인 폭 적정성 검토 요청"
+    ]
+  },
+  "risk_audit_output": {
+    "audit_summary": "전략은 대체로 합리적이나 호재 선반영과 사이클 변동성에 대한 방어가 필요.",
+    "biggest_weaknesses": [
+      "호재 선반영 여부가 미확정",
+      "목표 수익률 범위의 상단 근거 보강 필요",
+      "메모리 가격 가정에 대한 민감도 분석 부족"
+    ],
+    "missing_risks": [
+      "환율 급변 시 실적 영향 정량화 부족",
+      "글로벌 경쟁사 증설에 따른 공급 과잉 가능성",
+      "고객사 재고 조정 리스크"
+    ],
+    "overvaluation_possibility": "현 시점 과대평가 가능성은 제한적이나 선반영 구간 진입 시 추격매수 위험.",
+    "worst_case_scenario": "수요 둔화와 가격 반락 동반 시 기준가 대비 -15% 이상 하락 가능.",
+    "invalidation_supplement": "메모리 가격 주간 추세 지표를 무효화 조건에 명시적으로 추가 권고.",
+    "audit_verdict": "조건부 통과",
+    "recommended_adjustment": "분할 매수 유지하되 1차 진입 비중 축소 및 선반영 재확인 후 진입 권고."
+  }
+}

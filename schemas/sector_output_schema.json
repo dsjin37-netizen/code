@@ -1,0 +1,69 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "sector_output_schema.json",
+  "title": "Sector Researcher Output Schema",
+  "description": "업종 리서처 출력 구조",
+  "type": "object",
+  "properties": {
+    "data_cutoff": { "type": "string", "description": "데이터 기준일" },
+    "sources": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "출처 목록"
+    },
+    "sector_overview": { "type": "string", "description": "업종 개요" },
+    "global_trend": { "type": "string", "description": "글로벌 시장 흐름" },
+    "supply_demand_cycle": { "type": "string", "description": "수요·공급 사이클" },
+    "competitor_comparison": {
+      "type": "array",
+      "description": "경쟁사 비교표",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string", "description": "경쟁사명" },
+          "recent_performance": { "type": "string", "description": "최근 실적" },
+          "valuation": { "type": "string", "description": "밸류에이션" }
+        },
+        "required": ["name", "recent_performance", "valuation"],
+        "additionalProperties": false
+      }
+    },
+    "policy_regulation": { "type": "string", "description": "정책·규제 변화" },
+    "company_position": {
+      "type": "string",
+      "enum": ["선도", "상위권", "중위권", "취약"],
+      "description": "해당 기업의 업종 내 지위"
+    },
+    "sector_outlook": {
+      "type": "string",
+      "enum": ["긍정", "중립", "부정"],
+      "description": "업종 전망"
+    },
+    "key_benefits": {
+      "type": "array",
+      "items": { "type": "string" },
+      "maxItems": 3,
+      "description": "핵심 수혜 요인 3개"
+    },
+    "key_threats": {
+      "type": "array",
+      "items": { "type": "string" },
+      "maxItems": 3,
+      "description": "핵심 위협 요인 3개"
+    },
+    "handoff_summary": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 5,
+      "maxItems": 5,
+      "description": "투자 전략가에게 전달할 핵심 요약 5줄"
+    }
+  },
+  "required": [
+    "data_cutoff", "sources", "sector_overview", "global_trend",
+    "supply_demand_cycle", "competitor_comparison", "policy_regulation",
+    "company_position", "sector_outlook", "key_benefits", "key_threats",
+    "handoff_summary"
+  ],
+  "additionalProperties": false
+}

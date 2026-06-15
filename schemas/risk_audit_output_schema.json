@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "risk_audit_output_schema.json",
+  "title": "Risk Auditor Output Schema",
+  "description": "리스크 감사관 출력 구조",
+  "type": "object",
+  "properties": {
+    "audit_summary": { "type": "string", "description": "감사 요약" },
+    "biggest_weaknesses": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 3,
+      "maxItems": 3,
+      "description": "가장 큰 약점 3개"
+    },
+    "missing_risks": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 3,
+      "maxItems": 3,
+      "description": "누락 리스크 3개"
+    },
+    "overvaluation_possibility": { "type": "string", "description": "과대평가 가능성" },
+    "worst_case_scenario": { "type": "string", "description": "최악 시나리오" },
+    "invalidation_supplement": { "type": "string", "description": "무효화 조건 보완" },
+    "audit_verdict": {
+      "type": "string",
+      "enum": ["통과", "조건부 통과", "보류", "기각"],
+      "description": "최종 감사 의견"
+    },
+    "recommended_adjustment": {
+      "type": "string",
+      "description": "메인 에이전트에게 권고할 최종 판정 조정"
+    }
+  },
+  "required": [
+    "audit_summary", "biggest_weaknesses", "missing_risks",
+    "overvaluation_possibility", "worst_case_scenario",
+    "invalidation_supplement", "audit_verdict", "recommended_adjustment"
+  ],
+  "additionalProperties": false
+}

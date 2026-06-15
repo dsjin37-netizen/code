@@ -1,0 +1,59 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "financial_output_schema.json",
+  "title": "Financial Analyst Output Schema",
+  "description": "재무 분석가 출력 구조",
+  "type": "object",
+  "properties": {
+    "data_cutoff": {
+      "type": "string",
+      "description": "데이터 기준일 또는 '확인 필요'"
+    },
+    "sources": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "데이터 출처 목록"
+    },
+    "core_summary": { "type": "string", "description": "핵심 재무 요약" },
+    "growth_analysis": { "type": "string", "description": "성장성 분석" },
+    "profitability_analysis": { "type": "string", "description": "수익성 분석" },
+    "stability_analysis": { "type": "string", "description": "안정성 분석" },
+    "cashflow_analysis": { "type": "string", "description": "현금흐름 분석" },
+    "accounting_quality_check": { "type": "string", "description": "회계품질 점검" },
+    "valuation_judgment": { "type": "string", "description": "밸류에이션 판단" },
+    "peer_comparison": { "type": "string", "description": "동종업계 비교" },
+    "positive_factors": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 3,
+      "maxItems": 3,
+      "description": "긍정 요인 3개"
+    },
+    "risk_factors": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 3,
+      "maxItems": 3,
+      "description": "위험 요인 3개"
+    },
+    "financial_grade": {
+      "type": "string",
+      "enum": ["A", "B", "C", "D"],
+      "description": "재무 건전성 등급"
+    },
+    "handoff_summary": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 5,
+      "maxItems": 5,
+      "description": "투자 전략가에게 전달할 핵심 요약 5줄"
+    }
+  },
+  "required": [
+    "data_cutoff", "sources", "core_summary", "growth_analysis",
+    "profitability_analysis", "stability_analysis", "cashflow_analysis",
+    "accounting_quality_check", "valuation_judgment", "peer_comparison",
+    "positive_factors", "risk_factors", "financial_grade", "handoff_summary"
+  ],
+  "additionalProperties": false
+}

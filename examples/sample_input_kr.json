@@ -1,0 +1,13 @@
+{
+  "ticker": "005930",
+  "company_name": "삼성전자",
+  "market": "KOSPI",
+  "investment_horizon": "중기",
+  "risk_profile": "공격적",
+  "holding_status": "미보유",
+  "reference_price": 78000,
+  "capital_size": 10000000,
+  "max_loss_tolerance": 1000000,
+  "request_datetime": "2026-06-15 09:30:00",
+  "data_cutoff": "2026-06-15"
+}

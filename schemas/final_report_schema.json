@@ -1,0 +1,97 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "final_report_schema.json",
+  "title": "Final Report Schema",
+  "description": "메인 에이전트 최종 투자 리서치 보고서 구조",
+  "type": "object",
+  "properties": {
+    "meta": {
+      "type": "object",
+      "properties": {
+        "company_name": { "type": "string" },
+        "ticker": { "type": "string" },
+        "market": { "type": "string" },
+        "reference_price": { "type": ["number", "null"] },
+        "data_cutoff": { "type": "string" },
+        "investment_horizon": { "type": "string" },
+        "holding_status": { "type": "string" },
+        "risk_profile": { "type": "string" }
+      },
+      "required": ["company_name", "market", "data_cutoff"],
+      "additionalProperties": false
+    },
+    "core_conclusion": { "type": "string", "description": "1. 핵심 결론" },
+    "current_verdict": {
+      "type": "object",
+      "description": "2. 현재 판정",
+      "properties": {
+        "final_investment_judgment": {
+          "type": "string",
+          "enum": ["적극 매수", "분할 매수", "관망", "비중 축소", "매도"]
+        },
+        "system_verdict": {
+          "type": "string",
+          "enum": ["Go", "Hold", "No-Go"]
+        },
+        "risk_audit": {
+          "type": "string",
+          "enum": ["통과", "조건부 통과", "보류", "기각"]
+        },
+        "recommended_action": {
+          "type": "string",
+          "enum": ["신규 진입", "보유", "축소", "청산", "관망"]
+        }
+      },
+      "required": ["final_investment_judgment", "system_verdict", "risk_audit", "recommended_action"],
+      "additionalProperties": false
+    },
+    "logic_structure": { "type": "string", "description": "3. 논리 구조" },
+    "financial_summary": { "type": "object", "description": "4. 재무 분석 요약" },
+    "news_summary": { "type": "object", "description": "5. 뉴스 감성 분석 요약" },
+    "sector_summary": { "type": "object", "description": "6. 업종 리서치 요약" },
+    "strategy_summary": { "type": "object", "description": "7. 공격적 투자 전략" },
+    "risk_audit_summary": { "type": "object", "description": "8. 리스크 감사 결과" },
+    "scenarios": { "type": "object", "description": "9. Bull/Base/Bear 시나리오" },
+    "entry_exit_plan": { "type": "object", "description": "10. 진입·추가매수·손절·청산 계획" },
+    "weaknesses_invalidation": { "type": "object", "description": "11. 취약점/반례/무효화 조건" },
+    "execution_plan": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "12. 실행 방안"
+    },
+    "checklist": {
+      "type": "object",
+      "description": "13. 체크리스트",
+      "properties": {
+        "data_cutoff_stated": { "type": "boolean" },
+        "source_verified": { "type": "boolean" },
+        "stop_loss_exists": { "type": "boolean" },
+        "invalidation_exists": { "type": "boolean" },
+        "risk_audit_reflected": { "type": "boolean" },
+        "preemptive_reflection_checked": { "type": "boolean" },
+        "accounting_quality_checked": { "type": "boolean" },
+        "liquidity_checked": { "type": "boolean" }
+      },
+      "required": [
+        "data_cutoff_stated", "source_verified", "stop_loss_exists",
+        "invalidation_exists", "risk_audit_reflected",
+        "preemptive_reflection_checked", "accounting_quality_checked",
+        "liquidity_checked"
+      ],
+      "additionalProperties": false
+    },
+    "final_recommendation": { "type": "string", "description": "14. 최종 권고" },
+    "disclaimer": {
+      "type": "string",
+      "description": "투자 유의 문구. 항상 포함되어야 한다."
+    }
+  },
+  "required": [
+    "meta", "core_conclusion", "current_verdict", "logic_structure",
+    "financial_summary", "news_summary", "sector_summary", "strategy_summary",
+    "risk_audit_summary", "scenarios", "entry_exit_plan",
+    "weaknesses_invalidation", "execution_plan", "checklist",
+    "final_recommendation", "disclaimer"
+  ],
+  "additionalProperties": false
+}

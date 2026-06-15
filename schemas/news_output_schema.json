@@ -1,0 +1,91 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "news_output_schema.json",
+  "title": "News Sentiment Analyst Output Schema",
+  "description": "뉴스 감성 분석가 출력 구조",
+  "type": "object",
+  "properties": {
+    "data_cutoff": { "type": "string", "description": "데이터 기준일" },
+    "news_period": { "type": "string", "description": "뉴스 수집 기간 (예: 2026-05-15 ~ 2026-06-15)" },
+    "news_items": {
+      "type": "array",
+      "description": "최근 1개월 주요 뉴스 표",
+      "items": {
+        "type": "object",
+        "properties": {
+          "date": { "type": "string", "description": "뉴스 날짜" },
+          "source": { "type": "string", "description": "출처" },
+          "title": { "type": "string", "description": "제목" },
+          "summary": { "type": "string", "description": "핵심 내용" },
+          "classification": {
+            "type": "string",
+            "enum": ["호재", "악재", "중립", "불확실"]
+          },
+          "reliability": {
+            "type": "string",
+            "enum": ["높음", "중간", "낮음"],
+            "description": "신뢰도"
+          },
+          "importance": {
+            "type": "string",
+            "enum": ["높음", "중간", "낮음"],
+            "description": "중요도"
+          }
+        },
+        "required": ["date", "source", "title", "summary", "classification", "reliability", "importance"],
+        "additionalProperties": false
+      }
+    },
+    "counts": {
+      "type": "object",
+      "properties": {
+        "positive": { "type": "integer" },
+        "negative": { "type": "integer" },
+        "neutral": { "type": "integer" },
+        "uncertain": { "type": "integer" }
+      },
+      "required": ["positive", "negative", "neutral", "uncertain"],
+      "additionalProperties": false
+    },
+    "key_positive": {
+      "type": "array",
+      "items": { "type": "string" },
+      "maxItems": 3,
+      "description": "핵심 호재 3개"
+    },
+    "key_negative": {
+      "type": "array",
+      "items": { "type": "string" },
+      "maxItems": 3,
+      "description": "핵심 악재 3개"
+    },
+    "critical_risk_event": {
+      "type": "string",
+      "enum": ["있음", "없음", "확인 필요"],
+      "description": "치명적 리스크 이벤트 여부"
+    },
+    "preemptive_reflection_risk": {
+      "type": "string",
+      "enum": ["있음", "없음", "확인 필요"],
+      "description": "선반영 위험 여부"
+    },
+    "market_sentiment": {
+      "type": "string",
+      "enum": ["긍정", "중립", "부정"],
+      "description": "최종 시장 심리"
+    },
+    "handoff_summary": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 5,
+      "maxItems": 5,
+      "description": "투자 전략가에게 전달할 핵심 요약 5줄"
+    }
+  },
+  "required": [
+    "data_cutoff", "news_period", "news_items", "counts", "key_positive",
+    "key_negative", "critical_risk_event", "preemptive_reflection_risk",
+    "market_sentiment", "handoff_summary"
+  ],
+  "additionalProperties": false
+}

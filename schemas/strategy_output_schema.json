@@ -1,0 +1,101 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "strategy_output_schema.json",
+  "title": "Aggressive Strategy Agent Output Schema",
+  "description": "공격적 투자 전략가 출력 구조",
+  "type": "object",
+  "properties": {
+    "final_judgment": {
+      "type": "string",
+      "enum": ["적극 매수", "분할 매수", "관망", "비중 축소", "매도"],
+      "description": "최종 투자판정 5단계"
+    },
+    "key_rationale": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 5,
+      "maxItems": 5,
+      "description": "핵심 근거 5개"
+    },
+    "target_return": { "type": "string", "description": "목표 수익률" },
+    "stop_loss": {
+      "type": "string",
+      "description": "손절 라인. 매수 의견 시 필수, 설정 불가 시 매수 금지"
+    },
+    "entry_timing": { "type": "string", "description": "진입 타이밍" },
+    "position_size": { "type": "string", "description": "포지션 비중" },
+    "entry_plan": {
+      "type": "object",
+      "properties": {
+        "first": { "type": "string", "description": "1차 진입 계획" },
+        "second": { "type": "string", "description": "2차 진입 계획" },
+        "third": { "type": "string", "description": "3차 진입 계획" }
+      },
+      "required": ["first", "second", "third"],
+      "additionalProperties": false
+    },
+    "add_position_condition": { "type": "string", "description": "추가매수 조건" },
+    "exit_condition": { "type": "string", "description": "청산 조건" },
+    "scenarios": {
+      "type": "object",
+      "properties": {
+        "bull": {
+          "type": "object",
+          "properties": {
+            "probability": { "type": "string" },
+            "condition": { "type": "string" },
+            "response": { "type": "string" }
+          },
+          "required": ["probability", "condition", "response"],
+          "additionalProperties": false
+        },
+        "base": {
+          "type": "object",
+          "properties": {
+            "probability": { "type": "string" },
+            "condition": { "type": "string" },
+            "response": { "type": "string" }
+          },
+          "required": ["probability", "condition", "response"],
+          "additionalProperties": false
+        },
+        "bear": {
+          "type": "object",
+          "properties": {
+            "probability": { "type": "string" },
+            "condition": { "type": "string" },
+            "response": { "type": "string" }
+          },
+          "required": ["probability", "condition", "response"],
+          "additionalProperties": false
+        }
+      },
+      "required": ["bull", "base", "bear"],
+      "additionalProperties": false
+    },
+    "key_risks": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 5,
+      "maxItems": 5,
+      "description": "핵심 리스크 5개"
+    },
+    "invalidation_conditions": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "판단 무효화 조건"
+    },
+    "audit_request": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "리스크 감사관에게 넘길 검증 요청 사항"
+    }
+  },
+  "required": [
+    "final_judgment", "key_rationale", "target_return", "stop_loss",
+    "entry_timing", "position_size", "entry_plan", "add_position_condition",
+    "exit_condition", "scenarios", "key_risks", "invalidation_conditions",
+    "audit_request"
+  ],
+  "additionalProperties": false
+}
