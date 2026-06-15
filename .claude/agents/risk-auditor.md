@@ -1,6 +1,7 @@
 ---
 name: risk-auditor
 description: 투자 전략의 취약점·누락 리스크·과대평가·손절 실패 가능성을 감사할 때 사용. 전략가 보고서 완료 후 최종 검증 단계에서 메인 에이전트가 위임. 감사 없이 최종 보고서 발행 금지.
+model: claude-opus-4-8
 tools:
   - Read
   - WebSearch
