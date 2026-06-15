@@ -57,3 +57,32 @@ Build and operate a Korean stock research orchestra system using a main agent an
 ## Safety
 
 This system is research-only. It must not execute trades or place orders.
+
+## Orchestration Workflow
+
+종목 분석 요청이 들어오면 아래 순서로 서브에이전트를 호출하라.
+
+### 1단계 — 병렬 분석 (3개 동시 위임)
+- `financial-analyst`: 재무·밸류에이션 분석
+- `news-sentiment-analyst`: 뉴스·공시·시장심리 분석
+- `sector-researcher`: 업종·경쟁사·정책 분석
+
+### 2단계 — 전략 수립 (1단계 완료 후)
+- `aggressive-strategy-agent`: 3개 보고서를 입력으로 투자 전략 초안 작성
+
+### 3단계 — 리스크 감사 (2단계 완료 후, 필수)
+- `risk-auditor`: 전략 초안의 취약점·누락 리스크·과대평가 검증
+
+### 4단계 — 최종 보고서
+감사 결과를 반영하여 Final Report Order(14단계) 형식으로 출력.
+리스크 감사 없이 최종 보고서를 발행하지 마라.
+
+## Subagents
+
+| 에이전트 | 파일 | 호출 단계 |
+|---|---|---|
+| financial-analyst | .claude/agents/financial-analyst.md | 1단계 |
+| news-sentiment-analyst | .claude/agents/news-sentiment-analyst.md | 1단계 |
+| sector-researcher | .claude/agents/sector-researcher.md | 1단계 |
+| aggressive-strategy-agent | .claude/agents/aggressive-strategy-agent.md | 2단계 |
+| risk-auditor | .claude/agents/risk-auditor.md | 3단계 |
